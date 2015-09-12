@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage,amsmath}
+\usepackage[pdftex,colorlinks=true,plainpages=false]{hyperref}
+\begin{document}
+\begin{center}
+%{\Large \em DRAFT}\\
+{\Large COMPUTER SCIENCE 50100}\\
+{\Large Computing for Science and Engineering} \\
+{\large FALL 2015} \\
+ASSIGNMENT \# 2 (35 points) \\
+{\small September 9}
+%ASSIGNMENT \# 2 Solutions (35 points) \\
+%{\small October 6}
+\end{center}
+
+\paragraph{Due Wednesday, September 30 at 10:30 am}
+
+This assignment covers Section 2.3--2.6 of the class notes.
+
+\begin{enumerate}
+
+\item (8 points)  % sec 2.3
+ The problem is to write a module {\tt funcf.py}
+ implementing two versions of a function {\tt o}
+ that takes as it arguments two
+ functions {\tt f} and {\tt g}, each of which maps a {\tt float}
+ to a {\tt float}.
+ The function {\tt o} is to return the composition {\tt f}$\circ${\tt g}.
+ \begin{enumerate}
+ \item (5 points)
+ The first implementation, call it {\tt o1},
+ should make no use of the {\tt lambda} operator.
+ \item (3 points)
+   The second implementation, call it {\tt o2},
+   should make no use the {\tt def} command---none at all.
+ \end{enumerate}
+ Here is a template with a unit test:
+ \input{_funcf_py}
+
+
+\item (10 points)  sec 2.5  \\ % X2  before 2014
+ Write a script that,
+ from the current working directory and every nested subdirectory,
+ removes every file whose name ends with ``\verb|~|'',
+ but {\em only if} there is another file in the same directory
+ with the same name except for the tilde.
+Possibly useful functions: {\tt os.getcwd}, {\tt os.path.join},
+ {\tt os.remove}, {\tt os.walk}.
+ Here is a testing program:
+ \input{cleanTest_py}
+
+\item (17 points)  sec 2.6 \\
+ Construct a Python module {\tt randNo.py} that defines a {\tt RandNo} class.
+ Given a file of probabilities $p_i$, $i = 1, 2,\ldots, n$,
+ construct a function that generates $i$ with probability $p_i$.
+ \begin{enumerate}
+ \item The constructor is given a list of probabilities
+  $p_i$, $i = 0, 2,\ldots, n-1$, where $p_i$ is the probability that
+  an instance of a {\tt RandNo} has the value $i$
+  and creates an independent ``data structure''
+  that expedites instantiation and addition.
+  If the probabilities do not add up to 1 give or take $10^-7$,
+  raise a {\tt ValueError} with the format string
+  {\tt 'Probabilities sum to \%.7f.'}.
+ \item Define a call method that effects instantiation.
+  The call should take only $\mathcal{O}(\log n)$ computing time
+  where $n-1$ is the maximum value.
+ \item Define a {\tt str} method for the {\tt str} function,
+  as illustrated below.
+ \item Define a {\tt repr} method identical to the {\tt str} method.
+ \item Define a method that enables two {\tt RandNo}s to be added
+  using the operator {\tt +}.
+  The result should have the correct probability distribution.
+ \end{enumerate}
+Possibly useful functions:  {\tt random.random}.
+ Here is a template with a unit test:
+ \input{_randNo_py}
+
+\end{enumerate}
+
+\paragraph{Send your solutions electronically}
+You should submit one PDF file containing your source code for problems~1--3.
+Additionally,
+send your source code for each problem as separate files.
+
+\end{document}
