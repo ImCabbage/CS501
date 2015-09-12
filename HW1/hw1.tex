@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage,amsmath}
+\usepackage[pdftex,colorlinks=true,plainpages=false]{hyperref}
+\begin{document}
+\begin{center}
+{\Large COMPUTER SCIENCE 50100}\\
+{\Large Computing for Science and Engineering} \\
+{\large FALL 2015} \\
+
+ASSIGNMENT \# 1 (35 points) \\
+{\small August 24}
+
+
+\end{center}
+
+\paragraph{Due Wednesday, September 16 at 10:30 am}
+
+This assignment covers through Section 2.2 of the class notes.
+
+\begin{enumerate}
+
+\item[] The use of {\tt continue} is not permitted.
+
+\item[] Every loop is permitted to have only one exit.
+  In particular, a {\tt break} statement is permitted as an exit only
+  for a loop with header ``{\tt while True:}''.
+
+\item[] Do not use nested {\tt if}s when short circuit evaluation works.
+
+\item (2 points)  % sec 1.2 \\
+ Let {\tt process} be a program that runs from the bash command line.
+ Suppose that {\tt process} reads from the keyboard
+ and writes output and error messages to the terminal window.
+ By means of a bash command,
+ show how can we use it to read from a file {\tt in.dat},
+ write output to {\tt out.dat}, and send error messages to the "bit bucket".
+
+
+\item (3 points)  % sec 1.2 \\
+ Write a bash script {\tt envi.sh }
+ that takes a single argument $\langle\mathit{string}\rangle$
+ and prints each environment variable and its value
+ for which at least one of them
+ contains the string of characters $\langle\mathit{string}\rangle$.
+ For example
+  {\small\begin{verbatim}
+$ ./envi.sh TERM
+TERM_PROGRAM=Apple_Terminal
+TERM=xterm-256color
+TERM_PROGRAM_VERSION=343.7
+TERM_SESSION_ID=99F60DEC-36AC-46B2-9FBD-03FA60530D04
+\end{verbatim}}\noindent
+ You may assume that $\langle\mathit{string}\rangle$ contains only alphanumeric
+ characters and underscores.
+
+
+\item (7 points)  % sec 2.2 \\
+ Write a script that, given a string as an argument,
+ prints a count of the number of occurrences of each
+ alphabetic character {\em present} in the string,
+ without distinguishing between lower or upper case.
+ Useful functions: {\tt str.isalpha}, {\tt str.lower}.
+ For example,
+ {\small\begin{verbatim}
+$ alphacount.py 'One, two, 3!'
+o: 2
+w: 1
+e: 1
+t: 1
+n: 1
+\end{verbatim}}\noindent  %$
+The ordering of the output can be arbitrary.
+
+
+\item (10 points)  % sec 2.2 \\
+Write a script {\tt addition.py} that tests the user's knowledge
+of the addition table, as illustrated below:
+{\small\begin{verbatim}
+$ addition.py
+6 + 3 = ?
+12
+Incorrect; try again
+9
+Correct.
+8 + 2 = ?
+10
+Correct.
+1 + 8 = ?
+Good bye.
+\end{verbatim}}\noindent  %$
+Each of the operands is a random integer from 1 through 9.
+The user is given an unlimited number of chances to enter the correct answer.
+The user terminates the interaction by entering control-D.
+
+
+\item (13 points)  % sec 2.2 \\
+ Write a script {\tt cube2sphere.py} that extracts data from the file
+ {\tt input.dat} given on Piazza to produce the file {\tt output.dat}
+ given in Appendix~A.
+ The script constructs two tables,
+ each table has columns corresponding to the methods
+ {\tt cubicBspline Taylor4},\ldots, {\tt  undecicBspline Taylor12}
+ and rows for the cutoffs 7, 8,\ldots, 20.
+ Each entry of the first table compares a {\tt CUBE grid} result with the
+ corresponding {\tt SPHERE grid} result by giving \\
+ \verb|    ((t_calc for CUBE) - (t_calc for SPHERE))/(t_calc for SPHERE)| \\
+ in percentage rounded to the nearest integer.
+ The second table has entries giving \\
+ \verb|    ((t_setup for CUBE) - (t_setup for SPHERE))/(t_calc for SPHERE)| \\
+ Note that the denominators are same in both cases.
+ You may fully exploit the specific format of the file,
+ except you may not embed any numerical values from the file
+ into your program (other than 30006).
+
+
+\end{enumerate}
+
+
+
+\paragraph{Testing}
+Your code will be tested by testing programs.
+The plan is to make prototypes available on Piazza.
+Additional testing may be added to the testers though
+an effort is made to have the prototype catch all types of errors.
+
+\paragraph{Send your solutions electronically}
+You should submit one PDF file containing your
+answer to problem 1, as well as your source code for problems 2--5.
+Additionally,
+send your source code for problems 2--5 as separate files.
+PDF files can be created by scanning hard copy or by printing-to-PDF
+from a word processor or text editor or by saving-as or
+by using pdflatex.
+\begin{enumerate}
+\item Create a folder/directory containing all files and name the folder
+ {\tt hw1\_xxxxx}, where {\tt xxxxx} represents your Purdue career account name
+ (e.g., {\tt hw1\_yfang}). Compress the folder to a .zip file and name it  {\tt hw1\_xxxxx.zip} .
+ To pack a set of files and directories into a single file, use \\
+\verb|    zip| $\langle\mathit{name}\rangle$\verb|.zip|
+ $\langle\mathit{list}\rangle$ \\
+and to unpack \\
+\verb|    unzip| $\langle\mathit{name}\rangle$\verb|.zip| \\
+
+Note: you are required to follow this instruction to name your files,
+or else points may be deducted.
+\item Log on to Blackboard at
+ \url{http://www.itap.purdue.edu/tlt/blackboard/}
+  (To use Blackboard, you have to have Java enabled for your web browser.)
+\item Click on Course Content from the left panel. You will find the homeworks.
+\item Go into a homework assignment, you will see a submission window on the
+page. Click
+the ''Browse My Computer'' Button.
+ You will be able to submit the {\tt .zip} file
+containing your homework answers there.
+\item Submission will be closed after the due time.
+ Please manage your time carefully.
+\end{enumerate}
+
+\appendix
+
+\subsection*{A: Output file {\tt output.dat}}
+
+\input{output_dat}
+
+\end{document}
