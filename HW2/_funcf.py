@@ -10,8 +10,8 @@ def o1(f, g):
     def fog(x):
         return f(g(x))
     return fog
-    
-o2 = o1 
+ 
+o2 = lambda f,g: lambda x: f(g(x)) 
 
 if __name__ == '__main__':
     def f(x): return x*x + 1
